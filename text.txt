@@ -1,0 +1,23 @@
+CREATE TABLE CUSTOMER_DATA (
+                      CUSTOMER_ID IDENTITY NOT NULL PRIMARY KEY,
+                      FIRST_NAME VARCHAR(128) NOT NULL,
+                      LAST_NAME VARCHAR(128) NOT NULL,
+                      PHONE VARCHAR(128) NOT NULL,
+                      EMAIL VARCHAR(128) NOT NULL
+);
+CREATE TABLE CUSTOMER (
+                               CUSTOMER_ID IDENTITY NOT NULL PRIMARY KEY,
+                               FIRST_NAME VARCHAR(128) NOT NULL,
+                               LAST_NAME VARCHAR(128) NOT NULL,
+                               PHONE VARCHAR(128) NOT NULL,
+                               EMAIL VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE BILLING (
+                         BILLING_ID IDENTITY NOT NULL PRIMARY KEY,
+                         BILLING_DATE VARCHAR(128) NOT NULL,
+                         PAYMENT_DATE VARCHAR(128) NOT NULL,
+                         CUSTOMER_NO int NOT NULL,
+                         CONSTRAINT FK_CUSTOMER FOREIGN KEY (CUSTOMER_ID)
+                             REFERENCES CUSTOMER(CUSTOMER_ID)
+);
